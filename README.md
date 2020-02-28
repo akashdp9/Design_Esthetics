@@ -34,5 +34,50 @@ Used Default Django Database.
 
 Before running server make sure all migrations done. To exucute all migration.
 
-``` python3 manage.py migrate```,
-```python3 manage.py makemigrations```
+``` 
+python3 manage.py migrate
+python3 manage.py makemigrations
+```
+## Overall detail
+```
+Database Name: sqlite
+Username: akash
+Password: 9835167934a
+
+```
+
+Then to run the server, go to the directory '/Design_Esthetics/Git_Issue$ ' and type the following code in terminal:
+
+```
+python3 manage.py runserver
+```
+
+For Frontend which is ReactJS,
+Dependencies are: 
+```
+"nodejs":"^v8.10.0",
+"npm":"^6.13.4",
+"react": "^16.12.0",
+"react-dom": "^16.12.0",
+"react-router-dom": "^5.1.2",
+"react-scripts": "0.9.5"
+
+```
+
+Go to '/Design_Esthetics/issue_front$  and type the following code in the terminal:
+```
+"sudo apt install nodejs",
+"node --version",
+"npm install", 
+"npm -v",
+
+```
+Go to install axios for fetch backend to data
+```
+npm install axios
+```
+
+Then to run the react server, type the code:
+```
+npm start
+```
