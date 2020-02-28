@@ -4,13 +4,13 @@ import Modal from 'react-modal';
 import axios from 'axios';
 
 
-class SearchBar extends Component{
+class SearchBar extends Component{ 
   render(){
     return(
       <div>
         <input className="serinput" type='text' 
         onChange={(event)=>this.props.searchInfo(event.target.value)} placeholder='search here...'/>
-
+        
       </div>
     )
   }
@@ -25,6 +25,7 @@ class AddNewIssue extends Component{
     }
     this.AddItem = this.AddItem.bind(this);
   }
+ 
   AddItem() {
     let message = this.state.message;
     let type_of = this.state.type_of
@@ -42,17 +43,17 @@ class AddNewIssue extends Component{
   render(){
     return(
       <div>
-           <div>
-            <input className="titlebar" type="text" placeholder="Title"></input>
-          </div>
+           
           <div>
-              <textarea style={{width:'710px',backgroundColor:'whitesmoke' }}onChange={(event)=>this.setState({message:event.target.value})} className="textar"></textarea>
+              <textarea style={{width:'710px',backgroundColor:'whitesmoke' }}
+              onChange={(event)=>this.setState({message:event.target.value})} 
+              className="textar" placeholder="Add Your description here"></textarea>
           </div>
           <div className="molabel">
           <button className="submitbtn" onClick={()=>this.AddItem()}> Submit</button>
           <div>
-          <select className="lbmd" value={this.state.value} onChange={(event) => this.setState({ type_of: event.target.value })}>
-            <option value="0">Label</option>
+          <select className="lbmd" value={this.state.type_of} onChange={(event) => this.setState({ type_of: event.target.value })}>
+            <option value="0">Add Tag</option>
             {this.props.type.map((item, index) => (
               
               <option key={index} value={item.name} >{item.name} </option>
@@ -72,12 +73,13 @@ class App extends Component {
     super(props);
     this.state={
       isActive : false,
-      name:'',
+      title:'',
       descriptionList:[],
       type:[],
       description:'',
       type_of:'',
-      searchItem:''
+      searchItem:'',
+      searchName:'',
     }
     
     this.refresh = this.refresh.bind(this);
@@ -102,7 +104,7 @@ searchMessage(text) {
 sortlabel(text){
   console.log('label',text)
   this.setState({
-    name:text
+    searchName:text
   })
 }
 
@@ -146,37 +148,39 @@ closeIssue = () => {
     })
 }
 
+addNewTitle(){
+  this.setState({
+title:this.state.title
+  })
+
+}
   
   render() {
     return(
       
       <div>
-        {console.log(this.state.descriptionList)}
+        <div className="heading">
+            GitHub Issues
+        </div>
+           
         
         <div>
           <div className="serdiv">
-            <select className="fil">
-              <option>Filter</option>
-              <option>1</option>
-              <option>2</option>
-            </select>
+            
           <div>
-            <SearchBar searchInfo={this.searchMessage}/>
+            <SearchBar searchInfo={this.searchMessage} sortInfo={this.sortlabel}/>
           </div>
-          <select value={this.state.value} onChange={(event) => this.setState({ name: event.target.value })}>
-            <option value="0">Label</option>
-            {this.state.type.map((item, index) => (
-              <option key={index} value={item.name}>{item.name}</option>
-            ))}
-          </select>
+         
           <button className="lbtn" onClick={this.openNewIssue}>New Issue</button>
           </div>
-          
+      
+
+              
           {
             
             this.state.descriptionList.filter(item=>
               { return  item.type_of.name.toLowerCase().includes(this.state.searchItem.toLowerCase())
-                ||item.description.toLowerCase().includes(this.state.searchItem.toLocaleLowerCase())
+                ||item.description.toLowerCase().includes(this.state.searchItem.toLocaleLowerCase())          
               })
               .map((item,index)=>{
               return(
@@ -198,7 +202,7 @@ closeIssue = () => {
         
        
         <Modal isOpen={this.state.isActive}>
-         <AddNewIssue descriptioninfo={this.addIssue} type={this.state.type}/>
+         <AddNewIssue descriptioninfo={this.addIssue} type={this.state.type} titleInfo={this.addNewTitle}/>
         </Modal>
         
           
