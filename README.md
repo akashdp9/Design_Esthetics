@@ -34,5 +34,5 @@ Used Default Django Database.
 
 Before running server make sure all migrations done. To exucute all migration.
 
-``` python3 manage.py migrate```
+``` python3 manage.py migrate```,
 ```python3 manage.py makemigrations```
