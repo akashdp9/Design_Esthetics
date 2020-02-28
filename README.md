@@ -19,10 +19,12 @@ typed-ast==1.4.1
 wrapt==1.11.2
 ```
 # Installation
-clone the repository
+clone the repository.
 ``` https://github.com/akashdp9/Design_Esthetics.git```
-Setting up your virtual enviroment
+
+Setting up your virtual enviroment.
 ``` python3 -m venv .venv```
-Activating the virtual enviroment
+
+Activating the virtual enviroment.
 ```source .env/bin/activate```
 
