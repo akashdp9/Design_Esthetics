@@ -18,3 +18,6 @@ sqlparse==0.3.0
 typed-ast==1.4.1
 wrapt==1.11.2
 ```
+# Installation
+clone the repository
+```
