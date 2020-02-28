@@ -82,4 +82,4 @@ Then to run the react server, type the code:
 npm start
 ```
 # Images
-![alt Home Page]()<br>
+![alt Home Page](https://github.com/akashdp9/Design_Esthetics/blob/master/image/Screenshot%20from%202020-02-28%2010-33-44.png)<br>
