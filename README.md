@@ -1,6 +1,7 @@
 # Design_Esthetics
 Users will be able to create a Issues with type of tag.
 # Prerequisites
+You will need to install following request for the backend
 ``` asgiref==3.2.3
 astroid==2.3.3
 Django==3.0.3
