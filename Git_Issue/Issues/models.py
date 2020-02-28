@@ -9,9 +9,9 @@ class Categories(models.Model):
     
     
 class Items(models.Model):
-    type_of = models.ForeignKey(Categories, on_delete= models.SET_NULL, null=True)
+    type_of = models.ForeignKey(Categories, on_delete= models.CASCADE, null=True)
     description = models.CharField(max_length=300)
     
     
     def __str__(self):
-        return str(self.type_of )+ " " +str(self.description)
+        return str(self.description)

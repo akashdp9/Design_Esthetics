@@ -21,3 +21,7 @@ class ItemsSerializers(serializers.ModelSerializer):
         fields = ('id','type_of','description',)
 
 
+class ItemCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Items
+        fields = ('type_of', 'description')
