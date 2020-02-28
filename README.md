@@ -20,4 +20,9 @@ wrapt==1.11.2
 ```
 # Installation
 clone the repository
-```
+``` https://github.com/akashdp9/Design_Esthetics.git```
+Setting up your virtual enviroment
+``` python3 -m venv .venv```
+Activating the virtual enviroment
+```source .env/bin/activate```
+
